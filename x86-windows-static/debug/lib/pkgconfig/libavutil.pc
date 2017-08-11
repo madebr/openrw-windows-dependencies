@@ -1,0 +1,14 @@
+prefix=/c/Users/maarten/PycharmProjects/openrw-windows-dependencies/vcpkg/packages/ffmpeg_x86-windows-static/debug
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 55.58.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil 
+Libs.private: 
+Cflags: -I${includedir}

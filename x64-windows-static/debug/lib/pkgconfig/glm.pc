@@ -1,0 +1,7 @@
+prefix=C:/Users/maarten/PycharmProjects/openrw-windows-dependencies/vcpkg/packages/glm_x64-windows-static/debug
+includedir=${prefix}/include
+
+Name: GLM
+Description: OpenGL Mathematics
+Version: 0.9.8
+Cflags: -I${includedir}
