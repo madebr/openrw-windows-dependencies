@@ -24,7 +24,7 @@ class Triplet(object):
     def __hash__(self) -> int:
         return hash(self.arch) ^ hash(self.system) ^ hash(self.linkage)
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: object) -> bool:
         if type(self) != type(other):
             return False
         return self.arch == other.arch and self.system == other.arch and self.linkage == other.linkage
@@ -80,6 +80,7 @@ class VcPkg(object):
                            cwd=self.vcpkg_path, check=True)
         else:
             print('vcpkg: vcpkg executable exists, skipping bootstrap')
+            print('vcpkg: try update?')
 
     def update_vcpkg(self) -> None:
         self.build_vcpkg()
