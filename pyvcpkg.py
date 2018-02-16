@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 import argparse
-from deps import COPY_FIXES, DEPENDENCIES
-from pathlib import Path
 import shutil
 import subprocess
+from pathlib import Path
 from typing import Mapping, Sequence, Tuple
+
+from deps import COPY_FIXES, DEPENDENCIES
 
 
 class Triplet(object):
@@ -140,7 +141,10 @@ class CommaSplitter(argparse.Action):
 
 def main() -> None:
     default_output_path = Path('.').absolute()
-    default_vcpkg_path = Path('.').absolute() / 'vcpkg'
+    try:
+        default_vcpkg_path = Path(shutil.which('vcpkg')).parent
+    except TypeError:
+        default_vcpkg_path = Path('.').absolute() / 'vcpkg'
     default_arch = ['x86', 'x64']
     default_system = ['windows']
     default_linkage = ['dynamic', 'static']
